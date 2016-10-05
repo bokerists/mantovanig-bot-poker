@@ -13,10 +13,11 @@ exports = module.exports = {
 
           var grouped =_.values(_.groupBy(myCard, 'rank'));
           var isCoppia = grouped.filter((g) => g.length == 2).length > 0;
+          var isTris = grouped.filter((g) => g.length == 3).length > 0;
 
 
-          if(commonCards.length <= 3)
-              return callAmount;
+          // if(commonCards.length <= 3)
+          //     return callAmount;
 
           if(isCoppia)
               return callAmount + 5;
