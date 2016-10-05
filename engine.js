@@ -26,17 +26,21 @@ exports = module.exports = {
 
           var isCoppia = myGroupedRank.filter((g) => g.length == 2).length > 0;
           var isMyCoppia = allGroupedRank.filter((g) => g.length == 2).length > 0;
-          // var isTris = myGrouped.filter((g) => g.length == 3).length > 0;
-
+          var isTris = allGroupedRank.filter((g) => g.length == 3).length > 0;
           var isColore = allGroupedType.filter((g) => g.length == 2).length == 1;
 
 
           console.log('isCoppia', isCoppia);
           console.log('isMyCoppia', isMyCoppia);
           console.log('isColore', isColore);
-          
+          console.log('isTris', isTris);
+
           // if(commonCards.length <= 3)
           //     return callAmount;
+
+          if(isTris)
+            return callAmount + 20;
+
 
           if(isColore)
             return callAmount + 50;
