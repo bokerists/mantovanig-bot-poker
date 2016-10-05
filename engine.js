@@ -8,23 +8,21 @@ exports = module.exports = {
           var myCard = gamestate.players[me].cards;
           var callAmount = gamestate.callAmount;
 
-          //console.log('my card', myCard);
+          var commonCards = gamestate.commonCards;
 
-          if(this.checkCoppia(myCard))
+
+          var grouped =_.values(_.groupBy(myCard, 'rank'));
+          var isCoppia = grouped.filter((g) => g.length == 2).length > 0;
+
+
+          if(commonCards.length <= 3)
               return callAmount;
+
+          if(isCoppia)
+              return callAmount + 5;
 
 
           return 0;
-
-    },
-
-      checkCoppia: function(myCard) {
-
-          // var myCardRank = myCard.map((cards) => return cards.rank);
-
-         var grouped =_.values(_.groupBy(myCard, 'rank'));
-
-        return  grouped.filter((g) => g.length == 2).length > 0;
 
     }
 
