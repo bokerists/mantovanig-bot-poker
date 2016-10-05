@@ -14,4 +14,6 @@ npm install
 npm start
 ```
 
+OK
+
 More [info](https://docs.npmjs.com/).

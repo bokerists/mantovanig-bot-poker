@@ -1,4 +1,6 @@
 
+const engine = require('./engine.js');
+
 exports = module.exports = {
 
   VERSION: 'Superstar poker js-player',
@@ -23,7 +25,9 @@ exports = module.exports = {
 
     console.log(`Currently playing tournament ${gamestate.tournamentId}`);
 
-    return 0;
+    let toBet = engine.init(gamestate);
+
+    return toBet;
 
   }
 
