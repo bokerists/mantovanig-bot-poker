@@ -24,8 +24,9 @@ exports = module.exports = {
           // console.log('commonGrouped', commonGrouped);
 
 
-          var isCoppia = myGroupedRank.filter((g) => g.length == 2).length > 0;
-          var isMyCoppia = allGroupedRank.filter((g) => g.length == 2).length > 0;
+          var isCoppia = allGroupedRank.filter((g) => g.length == 2).length > 0;
+          var isDoppiaCoppia = allGroupedRank.filter((g) => g.length == 2).length == 2;
+          var isMyCoppia = myGroupedRank.filter((g) => g.length == 2).length > 0;
           var isTris = allGroupedRank.filter((g) => g.length == 3).length > 0;
           var isColore = allGroupedType.filter((g) => g.length == 2).length == 1;
 
@@ -39,21 +40,20 @@ exports = module.exports = {
           //     return callAmount;
 
           if(isTris)
-            return callAmount + 20;
+            return callAmount + 30;
 
-
-          if(isColore)
+          if(isDoppiaCoppia)
             return callAmount + 50;
 
+          if(isColore)
+              return callAmount + 80;
 
           if(isMyCoppia)
-              return callAmount + 10;
+              return callAmount + 20;
 
 
           if(isCoppia)
-            return callAmount + 5;
-
-
+            return callAmount + 10;
 
 
           return 0;
