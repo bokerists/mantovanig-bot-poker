@@ -15,16 +15,20 @@ exports = module.exports = {
           var allCards = _.concat(commonCards, myCard);
 
 
-          var myGrouped = groupedForRank(myCard);
-          var allGrouped = groupedForRank(allCards);
+          var myGroupedRank = groupedForRank(myCard);
+          var allGroupedRank = groupedForRank(allCards);
+
+          var allGroupedType = groupedForType(allCards);
 
           // console.log('myGrouped', myGrouped);
           // console.log('commonGrouped', commonGrouped);
 
 
-          var isCoppia = allGrouped.filter((g) => g.length == 2).length > 0;
-          var isMyCoppia = myGrouped.filter((g) => g.length == 2).length > 0;
+          var isCoppia = myGroupedRank.filter((g) => g.length == 2).length > 0;
+          var isMyCoppia = allGroupedRank.filter((g) => g.length == 2).length > 0;
           // var isTris = myGrouped.filter((g) => g.length == 3).length > 0;
+
+          var isColore = allGroupedType.filter((g) => g.length == 2).length == 1;
 
           console.log('isCoppia', isCoppia);
           console.log('isMyCoppia', isMyCoppia);
@@ -32,12 +36,17 @@ exports = module.exports = {
           // if(commonCards.length <= 3)
           //     return callAmount;
 
-          if(isCoppia)
-            return callAmount + 5;
+          if(isColore)
+            return callAmount + 50;
 
 
           if(isMyCoppia)
               return callAmount + 10;
+
+
+          if(isCoppia)
+            return callAmount + 5;
+
 
 
 
