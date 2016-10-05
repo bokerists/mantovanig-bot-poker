@@ -11,7 +11,7 @@ exports = module.exports = {
           var commonCards = gamestate.commonCards;
           var allCards = _.concat(commonCards, myCard);
 
-          var grouped =_.values(_.groupBy(allCards, 'rank'));
+          var grouped =_.values(_.groupBy(myCard, 'rank'));
 
           console.log('grouped', grouped);
 
