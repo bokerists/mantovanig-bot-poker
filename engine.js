@@ -9,14 +9,18 @@ exports = module.exports = {
           var callAmount = gamestate.callAmount;
 
           var commonCards = gamestate.commonCards;
-          var allCards = _.concat(commonCards, myCard);
+          // var allCards = _.concat(commonCards, myCard);
 
-          var grouped =_.values(_.groupBy(myCard, 'rank'));
+          var grouped = (cards) => _.values(_.groupBy(cards, 'rank'));
 
-          console.log('grouped', grouped);
+          var myGrouped = grouped(myCard);
+          var commonGrouped = grouped(commonCards);
 
-          var isCoppia = grouped.filter((g) => g.length == 2).length > 0;
-          var isTris = grouped.filter((g) => g.length == 3).length > 0;
+          console.log('myGrouped', myGrouped);
+          console.log('commonGrouped', commonGrouped);
+
+          var isCoppia = myGrouped.filter((g) => g.length == 2).length > 0;
+          // var isTris = myGrouped.filter((g) => g.length == 3).length > 0;
 
 
 
