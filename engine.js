@@ -9,11 +9,15 @@ exports = module.exports = {
           var callAmount = gamestate.callAmount;
 
           var commonCards = gamestate.commonCards;
+          var allCards = _.concat(commonCards, myCard);
 
+          var grouped =_.values(_.groupBy(allCards, 'rank'));
 
-          var grouped =_.values(_.groupBy(myCard, 'rank'));
+          console.log('grouped', grouped);
+
           var isCoppia = grouped.filter((g) => g.length == 2).length > 0;
           var isTris = grouped.filter((g) => g.length == 3).length > 0;
+
 
 
           // if(commonCards.length <= 3)
