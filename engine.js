@@ -10,6 +10,7 @@ exports = module.exports = {
           var me = gamestate.me;
           var myCard = gamestate.players[me].cards;
           var callAmount = gamestate.callAmount;
+          var minimumRaiseAmount = gamestate.minimumRaiseAmount;
 
           var commonCards = gamestate.commonCards;
           var allCards = _.concat(commonCards, myCard);
@@ -40,20 +41,20 @@ exports = module.exports = {
           //     return callAmount;
 
           if(isTris)
-            return callAmount + 30;
+            return minimumRaiseAmount + 40;
 
           if(isDoppiaCoppia)
-            return callAmount + 50;
+            return minimumRaiseAmount + 20;
 
           if(isColore)
-              return callAmount + 80;
+              return minimumRaiseAmount + 50;
 
           if(isMyCoppia)
-              return callAmount + 20;
+              return minimumRaiseAmount + 10;
 
 
           if(isCoppia)
-            return callAmount + 10;
+            return minimumRaiseAmount;
 
 
           return 0;
