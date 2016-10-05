@@ -30,9 +30,11 @@ exports = module.exports = {
 
           var isColore = allGroupedType.filter((g) => g.length == 2).length == 1;
 
+
           console.log('isCoppia', isCoppia);
           console.log('isMyCoppia', isMyCoppia);
-
+          console.log('isColore', isColore);
+          
           // if(commonCards.length <= 3)
           //     return callAmount;
 
