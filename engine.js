@@ -18,14 +18,16 @@ exports = module.exports = {
           var myGrouped = groupedForRank(myCard);
           var allGrouped = groupedForRank(allCards);
 
-          console.log('myGrouped', myGrouped);
-          console.log('commonGrouped', commonGrouped);
+          // console.log('myGrouped', myGrouped);
+          // console.log('commonGrouped', commonGrouped);
+
 
           var isCoppia = allGrouped.filter((g) => g.length == 2).length > 0;
           var isMyCoppia = myGrouped.filter((g) => g.length == 2).length > 0;
           // var isTris = myGrouped.filter((g) => g.length == 3).length > 0;
 
-
+          console.log('isCoppia', isCoppia);
+          console.log('isMyCoppia', isMyCoppia);
 
           // if(commonCards.length <= 3)
           //     return callAmount;
